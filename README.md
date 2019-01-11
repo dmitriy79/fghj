@@ -9,7 +9,7 @@ http://www.helpforcancer.com
 
 - Copyright (c) 2009-2015 Bitcoin Developers
 - Copyright (c) 2014-2017 Dash Developers
-- Copyright (c) 2017-2018 Helpforcancer Developers
+- Copyright (c) 2019 Helpforcancer Developers
 
 What is Helpforcancer?
 ----------------
@@ -21,7 +21,7 @@ are carried out collectively by the network. Helpforcancer Core is the name of t
 source software which enables the use of this currency.
 
 For more information, as well as an immediately useable, binary version of
-the Helpforcancer Core software, see https://www.helpforcancer.com/.
+the Helpforcancer Core software, see https://www.helpforcancercoin.com.
 
 
 License
