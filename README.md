@@ -5,7 +5,7 @@ HELPFORCANCER Core integration/staging tree
 [![Build Status](https://travis-ci.org/helpforcancer/helpforcancer.svg?branch=master)](https://travis-ci.org/helpforcancer/helpforcancer)
 
 
-http://www.helpforcancer.com
+http://www.helpforcancercoin.com
 
 - Copyright (c) 2009-2015 Bitcoin Developers
 - Copyright (c) 2014-2017 Dash Developers
