@@ -21,7 +21,7 @@ are carried out collectively by the network. Helpforcancer Core is the name of t
 source software which enables the use of this currency.
 
 For more information, as well as an immediately useable, binary version of
-the Helpforcancer Core software, see https://www.helpforcancer.com/Find-helpforcancer/.
+the Helpforcancer Core software, see https://www.helpforcancer.com/.
 
 
 License
