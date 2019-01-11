@@ -143,7 +143,7 @@ public:
 };
 
 /**
- * Dash RPC command dispatcher.
+ * Helpforcancer RPC command dispatcher.
  */
 class CRPCTable
 {

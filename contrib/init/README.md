@@ -1,11 +1,11 @@
 Sample configuration files for:
 
-SystemD: dashd.service
-Upstart: dashd.conf
-OpenRC:  dashd.openrc
-         dashd.openrcconf
-CentOS:  dashd.init
-OS X:    org.dash.dashd.plist
+SystemD: helpforcancerd.service
+Upstart: helpforcancerd.conf
+OpenRC:  helpforcancerd.openrc
+         helpforcancerd.openrcconf
+CentOS:  helpforcancerd.init
+OS X:    org.helpforcancer.helpforcancerd.plist
 
 have been made available to assist packagers in creating node packages here.
 

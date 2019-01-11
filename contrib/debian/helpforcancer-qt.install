@@ -1,0 +1,6 @@
+usr/local/bin/helpforcancer-qt usr/bin
+share/pixmaps/helpforcancer32.xpm usr/share/pixmaps
+share/pixmaps/helpforcancer16.xpm usr/share/pixmaps
+share/pixmaps/helpforcancer128.png usr/share/pixmaps
+debian/helpforcancer-qt.desktop usr/share/applications
+debian/helpforcancer-qt.protocol usr/share/kde4/services/

@@ -1,0 +1,21 @@
+<!DOCTYPE RCC><RCC version="1.0">
+    <qresource prefix="/translations">
+        <file alias="bg">locale/helpforcancer_bg.qm</file>
+        <file alias="de">locale/helpforcancer_de.qm</file>
+        <file alias="en">locale/helpforcancer_en.qm</file>
+        <file alias="es">locale/helpforcancer_es.qm</file>
+        <file alias="fi">locale/helpforcancer_fi.qm</file>
+        <file alias="fr">locale/helpforcancer_fr.qm</file>
+        <file alias="it">locale/helpforcancer_it.qm</file>
+        <file alias="ja">locale/helpforcancer_ja.qm</file>
+        <file alias="nl">locale/helpforcancer_nl.qm</file>
+        <file alias="pl">locale/helpforcancer_pl.qm</file>
+        <file alias="pt">locale/helpforcancer_pt.qm</file>
+        <file alias="ru">locale/helpforcancer_ru.qm</file>
+        <file alias="sk">locale/helpforcancer_sk.qm</file>
+        <file alias="sv">locale/helpforcancer_sv.qm</file>
+        <file alias="vi">locale/helpforcancer_vi.qm</file>
+        <file alias="zh_CN">locale/helpforcancer_zh_CN.qm</file>
+        <file alias="zh_TW">locale/helpforcancer_zh_TW.qm</file>
+    </qresource>
+</RCC>
