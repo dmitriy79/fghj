@@ -163,33 +163,33 @@ public:
     CMainParams() {
             strNetworkID = "main";
 
-            consensus.nSubsidyHalvingInterval = 262800; // Note: actual number of blocks per calendar year with DGW v3 is ~200700 (for example 449750 - 249050)
+            consensus.nSubsidyHalvingInterval = 210240; 
             consensus.nMasternodePaymentsStartBlock = 15; // not true, but it's ok as long as it's less then nMasternodePaymentsIncreaseBlock
-            // consensus.nMasternodePaymentsIncreaseBlock = 1569325056; // actual historical value
-            // consensus.nMasternodePaymentsIncreasePeriod = 1569325056; // 17280 - actual historical value
+            consensus.nMasternodePaymentsIncreaseBlock = 20; // actual historical value
+            consensus.nMasternodePaymentsIncreasePeriod = 576*30; // 17280 - actual historical value
             consensus.nInstantSendConfirmationsRequired = 6;
             consensus.nInstantSendKeepLock = 24;
             consensus.nBudgetPaymentsStartBlock = 1; // actual historical value
             consensus.nBudgetPaymentsCycleBlocks = 10; // ~(60*24*30)/2.6, actual number of blocks per month is 200700 / 12 = 16725
             consensus.nBudgetPaymentsWindowBlocks = 100;
-            consensus.nSuperblockStartBlock = 30; // The block at which 12.1 goes live (end of final 12.0 budget cycle)
-            consensus.nSuperblockCycle = 30; // ~(60*24*30)/2.6, actual number of blocks per month is 200700 / 12 = 16725
-            consensus.nSuperblockStartHash = uint256S("");
+            consensus.nSuperblockStartBlock = 1; // The block at which 12.1 goes live (end of final 12.0 budget cycle)
+            consensus.nSuperblockCycle = 1; // ~(60*24*30)/2.6, actual number of blocks per month is 200700 / 12 = 16725
+            consensus.nSuperblockStartHash = uint256S("0000099bbd1b0a7a238cf054b63ef0284f8ed4211ca1d1735dc76851aba15723");
             consensus.nGovernanceMinQuorum = 10;
             consensus.nGovernanceFilterElements = 20000;
             consensus.nMasternodeMinimumConfirmations = 15;
-            consensus.BIP34Height = 20;
-            consensus.BIP34Hash = uint256S("0x");
-            consensus.BIP65Height = 300;  // 00000000000076d8fcea02ec0963de4abfd01e771fec0863f960c2c64fe6f357
-            consensus.BIP66Height = 200; // 00000000000b1fa2dfa312863570e13fae9ca7b5566cb27e55422620b469aefa
-            consensus.DIP0001Height = 12096;
+            consensus.BIP34Height = 1;
+            consensus.BIP34Hash = uint256S("0x0000099bbd1b0a7a238cf054b63ef0284f8ed4211ca1d1735dc76851aba15723");
+            consensus.BIP65Height = 70;  
+            consensus.BIP66Height = 60; 
+            consensus.DIP0001Height = 60;
             consensus.powLimit = uint256S("00000fffff000000000000000000000000000000000000000000000000000000");
             consensus.nPowTargetTimespan = 24 * 60 * 60; // helpforcancer: 1 day
             consensus.nPowTargetSpacing = 120 ; // helpforcancer: 2 minutes
             consensus.fPowAllowMinDifficultyBlocks = false;
             consensus.fPowNoRetargeting = false;
-            consensus.nPowKGWHeight = 551;
-            consensus.nPowDGWHeight = 551;
+            consensus.nPowKGWHeight = 90;
+            consensus.nPowDGWHeight = 90;
 
             // Stake information
 
@@ -230,9 +230,9 @@ public:
             consensus.vDeployments[Consensus::DEPLOYMENT_BIP147].nThreshold = 3226; // 80% of 4032
 
             // The best chain should have at least this much work.
-            consensus.nMinimumChainWork = uint256S("0x0000000000000000000000000000000000000000000000000000000006600660"); //
+            consensus.nMinimumChainWork = uint256S("0x0"); //
             // By default assume that the signatures in ancestors of this block are valid.
-            consensus.defaultAssumeValid = uint256S("0x00000639e8420921a0e5f8a662ca8abd947662b881110eb61246cf500f75977e"); // 
+            consensus.defaultAssumeValid = uint256S("0x00000a03bf453d36f020f4b8ff872002fdf2094c1cd29c666fe3dbcd77567e6e"); // 
             /**
              * The message start string is designed to be unlikely to occur in normal data.
              * The characters are rarely used upper ASCII, not valid as UTF-8, and produce
@@ -243,7 +243,7 @@ public:
             pchMessageStart[2] = 0xe8;
             pchMessageStart[3] = 0xfc;
             vAlertPubKey = ParseHex("04e243339bf9bc67a343db0ba0f73851546759320d901c2809cb2ce05eaee36c4501434f4740ae0ad9fb3e3315444c2a203eda65198fc1d45c8e04e9aa47d81af2");
-            nDefaultPort = 22323;
+            nDefaultPort = 29910;
             nPruneAfterHeight = 100000;
 
 
@@ -276,7 +276,7 @@ public:
         // HFCC BIP32 prvkeys start with 'xprv' (Bitcoin defaults)
            base58Prefixes[EXT_SECRET_KEY] = boost::assign::list_of(0x04)(0x88)(0xAD)(0xE4).convert_to_container<std::vector<unsigned char> >();
         // HFCC BIP44 coin type is '5'
-           nExtCoinType = 1997;
+           nExtCoinType = 5;
 
             vFixedSeeds = std::vector<SeedSpec6>(pnSeed6_main, pnSeed6_main + ARRAYLEN(pnSeed6_main));
 
@@ -295,20 +295,19 @@ public:
             checkpointData = (CCheckpointData) {
                     boost::assign::map_list_of
                                 ( 0, uint256S("0x00000fda77d52e10f93472f871f8c70ba369d3d750626dbb139b6bd7924ea529"))
-				( 10, uint256S("0x00000e6f71d898a6f55958a7a2e95af956b169ff6ef40070a1cfd7bf5e6452db"))
-				( 50, uint256S("0x0000067d68c2ebe64376c4b452aa75d4009c438d266e33dcd58eec503da9675b"))
-				( 90, uint256S("0x000004d79e0978b22612b38a282ab5cbc6c04a367b4125670547bebb6bb64ad6"))
-				( 101, uint256S("0x00000639e8420921a0e5f8a662ca8abd947662b881110eb61246cf500f75977e"))
-
-
-            };
-            chainTxData = ChainTxData{
-                    1547148431, // * UNIX timestamp of last checkpoint block
-                    102,    // * total number of transactions between genesis and last checkpoint
-                    //   (the tx=... number in the SetBestChain debug.log lines)
-                    0.98        // * estimated number of transactions per day after checkpoint
+                                ( 10, uint256S("0x000005e67e67295ef30be001b493dc0f54965c0ded16cc6d6363f97c6dc5afd8"))
+                                ( 11, uint256S("0x0000061df5dd6f54ac892cf63d2bf200ca1372aee5bee6d59a26520c03b9e152"))
+                                ( 40, uint256S("0x00000791191270603b8c656125230cb7011914a679ebff18751800fc2f131940"))
+                                ( 48, uint256S("0x00000a03bf453d36f020f4b8ff872002fdf2094c1cd29c666fe3dbcd77567e6e"))
 
             };
+                       chainTxData = ChainTxData{
+            1547579971, // * UNIX timestamp of last known number of transactions
+            49,    // * total number of transactions between genesis and that timestamp
+                        //   (the tx=... number in the SetBestChain debug.log lines)
+            0.1         // * estimated number of transactions per second after that timestamp
+        };
+
     }
 };
 static CMainParams mainParams;
@@ -359,7 +358,7 @@ public:
             // smallest difficulty | 0x008000
             consensus.nWSTargetDiff = 0x1e0ffff0; // Genesis Difficulty
 
-            consensus.nRuleChangeActivationThreshold = 1512; // 75% for testchains
+            consensus.nRuleChangeActivationThreshold = 1916; // 75% for testchains
             consensus.nMinerConfirmationWindow = 2016; // nPowTargetTimespan / nPowTargetSpacing
             consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].bit = 28;
             consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].nStartTime = 1199145601; // January 1, 2008

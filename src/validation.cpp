@@ -1281,22 +1281,50 @@ NOTE:   unlike bitcoin we are using PREVIOUS block height here,
         might be a good idea to change this to use prev bits
         but current height to avoid confusion.
 */
-CAmount GetBlockSubsidy(int nPrevHeight, const Consensus::Params& consensusParams, bool fSuperblockPartOnly)
+/*CAmount GetBlockSubsidy(int nPrevHeight, const Consensus::Params& consensusParams, bool fSuperblockPartOnly)
 {
     CAmount nSubsidyBase = 10;
     /*
     NOTE:   unlike bitcoin we are using PREVIOUS block height here,
             might be a good idea to change this to use prev bits
             but current height to avoid confusion.
-    */
+    *
 
     if(nPrevHeight <= 2) {nSubsidyBase = 250000;}
 
-    // New Block Reward
-    if(nPrevHeight > 101) {nSubsidyBase = 20;}
+     New Block Reward
+    if(nPrevHeight > 101) {nSubsidyBase = 20;}*/
+CAmount GetBlockSubsidy( int nPrevHeight, const Consensus::Params& consensusParams, bool fSuperblockPartOnly)
+{
+    double dDiff;
+    CAmount nSubsidyBase;
+
+    if (nPrevHeight < 1 && Params().NetworkIDString() == CBaseChainParams::MAIN) {
+        /* a bug which caused diff to not be correctly calculated */
+        dDiff = (double)0x0000ffff / (double)(nPrevHeight & 0x00ffffff);
+    } else {
+        dDiff = ConvertBitsToDouble(nPrevHeight);
+    }
+    if (nPrevHeight < 1) {
+        nSubsidyBase = 1;
+    } else if (nPrevHeight < 2) {
+        nSubsidyBase = 500000;
+    } else if (nPrevHeight < 3) {
+	nSubsidyBase = 500000;
+    } else {
+	nSubsidyBase = 5;
+    }
 
     // LogPrintf("height %u diff %4.2f reward %d\n", nPrevHeight, dDiff, nSubsidyBase);
-    CAmount nSubsidy = nSubsidyBase * COIN;
+     CAmount nSubsidy = nSubsidyBase * COIN;
+    if (nSubsidy == 500000000) {
+	nSubsidy = nSubsidy + 2460000;
+    }
+
+
+
+    // LogPrintf("height %u diff %4.2f reward %d\n", nPrevHeight, dDiff, nSubsidyBase);
+  //  CAmount nSubsidy = nSubsidyBase * COIN;
 
     // yearly decline of production by ~20% per year, projected ~25M coins max by year 2043+.
     for (int i = consensusParams.nSubsidyHalvingInterval; i <= nPrevHeight; i += consensusParams.nSubsidyHalvingInterval) {
