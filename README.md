@@ -18,7 +18,8 @@ Helpforcancer is an experimental digital currency that enables anonymous, instan
 payments to anyone, anywhere in the world. Helpforcancer uses peer-to-peer technology
 to operate with no central authority: managing transactions and issuing money
 are carried out collectively by the network. Helpforcancer Core is the name of the open
-source software which enables the use of this currency.
+source software which enables the use of this currency. Its a folk of Dash and its a proof 
+of stake coin
 
 For more information, as well as an immediately useable, binary version of
 the Helpforcancer Core software, see https://www.helpforcancercoin.com.
