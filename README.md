@@ -1,4 +1,4 @@
-![Helpforcancer](https://github.com/helpforcancer/helpforcancer/tree/master/src/qt/res/icons/light/about.png "Helpforcancer")
+![Helpforcancer](https://github.com/helpforcancer/helpforcancer/blob/master/src/qt/res/icons/light/about.png "Helpforcancer")
 
 HELPFORCANCER Core integration/staging tree
 =====================================
